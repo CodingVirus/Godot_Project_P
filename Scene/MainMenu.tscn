@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://ielcdn8vg48y"]
+
+[ext_resource type="Texture2D" uid="uid://denp7bvpnt6js" path="res://Art/MainMenu/Main (No Button).png" id="1_12g4k"]
+[ext_resource type="Script" path="res://Scrips/UI/MainMenu.gd" id="1_vy6yv"]
+[ext_resource type="Texture2D" uid="uid://cjq32wqna7w6q" path="res://Art/MainMenu/Button (Start).png" id="2_r1464"]
+[ext_resource type="Texture2D" uid="uid://2mwgx62o1bqq" path="res://Art/MainMenu/Button (Exit).png" id="3_e6vac"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vy6yv")
+cutScene = "res://Scene/CutScene/PhoneCutScene.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_12g4k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer"]
+position = Vector2(678, 662)
+texture_normal = ExtResource("2_r1464")
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="VBoxContainer"]
+position = Vector2(678, 849)
+texture_normal = ExtResource("3_e6vac")
+
+[connection signal="pressed" from="VBoxContainer/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TouchScreenButton2" to="." method="_on_touch_screen_button_2_pressed"]

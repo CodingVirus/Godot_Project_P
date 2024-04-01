@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cm0w53g5u24e3"]
+
+[ext_resource type="Texture2D" uid="uid://b3xni6de665b6" path="res://Art/Item/Healing/apple 1.png" id="1_snp48"]
+[ext_resource type="Script" path="res://Scrips/Inventory/ItemData.gd" id="2_qk2mh"]
+
+[resource]
+script = ExtResource("2_qk2mh")
+item_name = 2
+item_image = ExtResource("1_snp48")
+is_expendable = false
+is_only_one = true

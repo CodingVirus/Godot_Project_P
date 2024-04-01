@@ -1,0 +1,193 @@
+[gd_scene load_steps=25 format=3 uid="uid://cfv6fbhpe045l"]
+
+[ext_resource type="Texture2D" uid="uid://dm42lwepuudyy" path="res://Art/Background/default background 4.png" id="1_l2mn7"]
+[ext_resource type="Texture2D" uid="uid://bngb0mxejirs8" path="res://Art/Tile/Tile1.png" id="2_kurcf"]
+[ext_resource type="Texture2D" uid="uid://cy4ar7oa31m5e" path="res://Art/Acc/House/door.png" id="3_hmh75"]
+[ext_resource type="Script" path="res://Scrips/RefactorScript/Teleporter.gd" id="3_hywf8"]
+[ext_resource type="Texture2D" uid="uid://2afd02jofl7y" path="res://Art/Acc/House/bookcase 1.png" id="4_wgwm3"]
+[ext_resource type="Texture2D" uid="uid://kxeglya2llei" path="res://Art/Acc/House/desk 1.png" id="5_pb54f"]
+[ext_resource type="Texture2D" uid="uid://cku2ww2e4t84f" path="res://Art/Acc/B2/B2 Storage/ToolBox.png" id="6_b3146"]
+[ext_resource type="Texture2D" uid="uid://tqaofhjdnb5i" path="res://Art/Acc/House/chair 1.png" id="6_i6k3v"]
+[ext_resource type="Texture2D" uid="uid://bqfdogsvorsnj" path="res://Art/Acc/House/window 1.png" id="7_80n52"]
+[ext_resource type="Texture2D" uid="uid://b5nilvcnrsfpm" path="res://Art/Acc/cabinet 2.png" id="7_r8plt"]
+[ext_resource type="Texture2D" uid="uid://dxkn502wy3ity" path="res://Art/Acc/House/cup 1.png" id="8_fg1k4"]
+[ext_resource type="Texture2D" uid="uid://ixtmvkftvb7n" path="res://Art/Acc/B1/B1 Office/lamp 1.png" id="12_ty6no"]
+[ext_resource type="Texture2D" uid="uid://c3s3ppn3esdhd" path="res://Art/Acc/computer.png" id="13_url24"]
+[ext_resource type="Texture2D" uid="uid://c62xmkjluskmq" path="res://Art/Acc/B1/B1 Office/radiator 1.png" id="14_3xhj3"]
+[ext_resource type="Texture2D" uid="uid://cc1xlsqqbu56n" path="res://Art/Acc/B2/B2 Storage/Box 1.png" id="15_6nvyq"]
+[ext_resource type="Texture2D" uid="uid://cu0aj2851qrxj" path="res://Art/Acc/B1/B1 Office/book 1.png" id="15_jojc6"]
+[ext_resource type="Texture2D" uid="uid://bs6yhfksm1dam" path="res://Art/Acc/B3/B3 Surgery/desk 1.png" id="16_7pot7"]
+[ext_resource type="Texture2D" uid="uid://cuiu700uixjw3" path="res://Art/Acc/B2/B2 Storage/Box 2.png" id="16_wiihg"]
+[ext_resource type="Script" path="res://Scrips/RefactorScript/Interaction.gd" id="19_cpl4d"]
+[ext_resource type="Texture2D" uid="uid://b17rb4nhok34s" path="res://Art/characters/Doctor(Unity).png" id="20_b3lng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bivqm"]
+size = Vector2(404, 1094)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4chd"]
+size = Vector2(231, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquuh"]
+size = Vector2(3838.5, 62.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6coct"]
+size = Vector2(989, 271)
+
+[node name="House" type="Node2D"]
+
+[node name="DefaultBackground4" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_l2mn7")
+
+[node name="DefaultBackground5" type="Sprite2D" parent="."]
+position = Vector2(2867, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_l2mn7")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-142, 537)
+shape = SubResource("RectangleShape2D_bivqm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(3947, 537)
+shape = SubResource("RectangleShape2D_bivqm")
+
+[node name="Tile1" type="Sprite2D" parent="."]
+position = Vector2(960, 810.01)
+scale = Vector2(1.02702, 0.500018)
+texture = ExtResource("2_kurcf")
+
+[node name="Tile2" type="Sprite2D" parent="."]
+position = Vector2(2881, 810.01)
+scale = Vector2(1, 0.500018)
+texture = ExtResource("2_kurcf")
+
+[node name="HouseIndoor" type="Area2D" parent="."]
+script = ExtResource("3_hywf8")
+
+[node name="Sprite" type="Sprite2D" parent="HouseIndoor"]
+position = Vector2(462, 794)
+texture = ExtResource("3_hmh75")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseIndoor"]
+position = Vector2(478.5, 817)
+shape = SubResource("RectangleShape2D_t4chd")
+
+[node name="HouseIndoorMarker" type="Marker2D" parent="HouseIndoor"]
+position = Vector2(484, 1033)
+
+[node name="Box1" type="Sprite2D" parent="."]
+position = Vector2(3245, 516)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("15_6nvyq")
+
+[node name="ToolBox" type="Sprite2D" parent="."]
+position = Vector2(3035, 538)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_b3146")
+
+[node name="Cabinet3" type="Sprite2D" parent="."]
+position = Vector2(1661, 797)
+texture = ExtResource("7_r8plt")
+
+[node name="Cabinet2" type="Sprite2D" parent="."]
+position = Vector2(1796, 797)
+texture = ExtResource("7_r8plt")
+
+[node name="Bookcase1" type="Sprite2D" parent="."]
+position = Vector2(3059, 780)
+texture = ExtResource("4_wgwm3")
+
+[node name="Bookcase2" type="Sprite2D" parent="."]
+position = Vector2(3328, 780)
+texture = ExtResource("4_wgwm3")
+
+[node name="Desk1" type="Sprite2D" parent="."]
+position = Vector2(2171, 933)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_pb54f")
+
+[node name="Chair1" type="Sprite2D" parent="."]
+position = Vector2(2475, 906)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_i6k3v")
+
+[node name="Chair2" type="Sprite2D" parent="."]
+position = Vector2(1903, 909)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_i6k3v")
+flip_h = true
+
+[node name="Window1" type="Sprite2D" parent="."]
+position = Vector2(1369, 462)
+scale = Vector2(2, 2)
+texture = ExtResource("7_80n52")
+
+[node name="Cup1" type="Sprite2D" parent="."]
+position = Vector2(2237, 827)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_fg1k4")
+
+[node name="Cup2" type="Sprite2D" parent="."]
+position = Vector2(2126, 827)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_fg1k4")
+flip_h = true
+
+[node name="Radiator1" type="Sprite2D" parent="."]
+position = Vector2(3588, 903)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_3xhj3")
+
+[node name="Book1" type="Sprite2D" parent="."]
+position = Vector2(2283, 837)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("15_jojc6")
+
+[node name="Lamp1" type="Sprite2D" parent="."]
+position = Vector2(1233.6, 771)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("12_ty6no")
+
+[node name="Computer" type="Sprite2D" parent="."]
+position = Vector2(1386.6, 753)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_url24")
+flip_h = true
+
+[node name="Desk2" type="Sprite2D" parent="."]
+position = Vector2(1312.6, 903)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("16_7pot7")
+
+[node name="Box2" type="Sprite2D" parent="."]
+position = Vector2(985, 911)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("16_wiihg")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1920.75, 1045.25)
+shape = SubResource("RectangleShape2D_lquuh")
+
+[node name="Doctor" type="Area2D" parent="."]
+position = Vector2(0, -3)
+script = ExtResource("19_cpl4d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Doctor"]
+position = Vector2(2428, 859)
+texture = ExtResource("20_b3lng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doctor"]
+position = Vector2(2358.5, 856.5)
+shape = SubResource("RectangleShape2D_6coct")
+
+[connection signal="body_entered" from="HouseIndoor" to="HouseIndoor" method="_on_body_entered"]
+[connection signal="body_exited" from="HouseIndoor" to="HouseIndoor" method="_on_body_exited"]
+[connection signal="body_entered" from="Doctor" to="Doctor" method="_on_body_entered"]
+[connection signal="body_exited" from="Doctor" to="Doctor" method="_on_body_exited"]

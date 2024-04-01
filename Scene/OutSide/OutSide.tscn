@@ -1,0 +1,141 @@
+[gd_scene load_steps=16 format=3 uid="uid://b2h0uw1pumr20"]
+
+[ext_resource type="Texture2D" uid="uid://dwi0cb3wn3rvm" path="res://Art/Background/Outside/default background 5.png" id="1_171o8"]
+[ext_resource type="Texture2D" uid="uid://dfje7nnan2lr8" path="res://Art/Background/Outside/house sketch1(edited).png" id="3_ah763"]
+[ext_resource type="Script" path="res://Scrips/RefactorScript/Teleporter.gd" id="3_wmwdf"]
+[ext_resource type="Texture2D" uid="uid://crjq8xkaucu1q" path="res://Art/Background/Outside/Telegraf pole.png" id="4_r0l5e"]
+[ext_resource type="Texture2D" uid="uid://j0ow5m7h7ti0" path="res://Art/Acc/vending machine 2.png" id="5_7wf2w"]
+[ext_resource type="Script" path="res://Scrips/RefactorScript/Interaction.gd" id="5_b3ehr"]
+[ext_resource type="Texture2D" uid="uid://bngb0mxejirs8" path="res://Art/Tile/Tile1.png" id="6_og576"]
+[ext_resource type="Texture2D" uid="uid://du2kj80tpead" path="res://Art/Background/Outside/Car 1_2.png" id="7_q0fa0"]
+[ext_resource type="Texture2D" uid="uid://dwno2gjolc4kk" path="res://Art/Acc/B3/B3 Mechanical room/machine 1.png" id="8_scnah"]
+[ext_resource type="Texture2D" uid="uid://blgikajmiy11p" path="res://Art/Acc/B3/B3 Mechanical room/machine 2.png" id="9_olytx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08sut"]
+size = Vector2(243, 321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbaw0"]
+size = Vector2(183, 370)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrvgu"]
+size = Vector2(58.8235, 1077)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8r278"]
+size = Vector2(371, 293)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4a1t"]
+size = Vector2(5770, 65)
+
+[node name="OutSide" type="Node2D"]
+
+[node name="DefaultBackground1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_171o8")
+
+[node name="DefaultBackground2" type="Sprite2D" parent="."]
+position = Vector2(2880, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_171o8")
+
+[node name="DefaultBackground3" type="Sprite2D" parent="."]
+position = Vector2(4799, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_171o8")
+
+[node name="TelegrafPole1" type="Sprite2D" parent="."]
+position = Vector2(1001, 561)
+texture = ExtResource("4_r0l5e")
+
+[node name="TelegrafPole2" type="Sprite2D" parent="."]
+position = Vector2(3488, 563)
+texture = ExtResource("4_r0l5e")
+
+[node name="TelegrafPole3" type="Sprite2D" parent="."]
+position = Vector2(4876, 563)
+texture = ExtResource("4_r0l5e")
+
+[node name="HouseOutDoor" type="Area2D" parent="."]
+script = ExtResource("3_wmwdf")
+
+[node name="Sprite2D" type="Sprite2D" parent="HouseOutDoor"]
+position = Vector2(2406, 554)
+texture = ExtResource("3_ah763")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseOutDoor"]
+position = Vector2(2141.5, 808.5)
+shape = SubResource("RectangleShape2D_08sut")
+
+[node name="HouseOutDoorMarker" type="Marker2D" parent="HouseOutDoor"]
+position = Vector2(2164, 1020)
+
+[node name="VendingMachine" type="Area2D" parent="."]
+position = Vector2(1473, 787)
+script = ExtResource("5_b3ehr")
+
+[node name="Sprite" type="Sprite2D" parent="VendingMachine"]
+texture = ExtResource("5_7wf2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VendingMachine"]
+position = Vector2(18.5, -8)
+shape = SubResource("RectangleShape2D_fbaw0")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-54, 523.5)
+scale = Vector2(2.72, 1)
+shape = SubResource("RectangleShape2D_jrvgu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
+position = Vector2(5724, 507)
+scale = Vector2(3.39961, 1.33656)
+shape = SubResource("RectangleShape2D_jrvgu")
+
+[node name="Floor1" type="Sprite2D" parent="."]
+position = Vector2(960, 810.01)
+scale = Vector2(1.12, 0.500018)
+texture = ExtResource("6_og576")
+
+[node name="Floor2" type="Sprite2D" parent="."]
+position = Vector2(2875, 810.01)
+scale = Vector2(1, 0.500018)
+texture = ExtResource("6_og576")
+
+[node name="Floor3" type="Sprite2D" parent="."]
+position = Vector2(4793, 810.01)
+scale = Vector2(1, 0.500018)
+texture = ExtResource("6_og576")
+
+[node name="Car12" type="Sprite2D" parent="."]
+position = Vector2(4142, 882)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_q0fa0")
+
+[node name="Machine1" type="Sprite2D" parent="."]
+position = Vector2(774, 797)
+texture = ExtResource("8_scnah")
+
+[node name="Generator" type="Area2D" parent="."]
+script = ExtResource("5_b3ehr")
+
+[node name="Machine2" type="Sprite2D" parent="Generator"]
+position = Vector2(578, 806)
+texture = ExtResource("9_olytx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Generator"]
+position = Vector2(727.5, 786.5)
+shape = SubResource("RectangleShape2D_8r278")
+
+[node name="FloorCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorCollision"]
+position = Vector2(2875, 1039.5)
+shape = SubResource("RectangleShape2D_n4a1t")
+
+[connection signal="body_entered" from="HouseOutDoor" to="HouseOutDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="HouseOutDoor" to="HouseOutDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="VendingMachine" to="VendingMachine" method="_on_body_entered"]
+[connection signal="body_exited" from="VendingMachine" to="VendingMachine" method="_on_body_exited"]
+[connection signal="body_entered" from="Generator" to="Generator" method="_on_body_entered"]
+[connection signal="body_exited" from="Generator" to="Generator" method="_on_body_exited"]

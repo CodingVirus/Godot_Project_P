@@ -1,0 +1,129 @@
+[gd_scene load_steps=25 format=3 uid="uid://bcvu1cmk7t4wo"]
+
+[ext_resource type="Texture2D" uid="uid://ckpua1nvul82u" path="res://Art/Background/default background 2.png" id="1_av3v8"]
+[ext_resource type="Texture2D" uid="uid://bngb0mxejirs8" path="res://Art/Tile/Tile1.png" id="1_gewod"]
+[ext_resource type="Texture2D" uid="uid://jt08kx8f1f70" path="res://Art/Acc/B3/B3 Surgery/냉장고1.png" id="2_qvftl"]
+[ext_resource type="Texture2D" uid="uid://cc8cvbfoto013" path="res://Art/Acc/B3/B3 Surgery/수술 침대1.png" id="3_11uyi"]
+[ext_resource type="Texture2D" uid="uid://bs6yhfksm1dam" path="res://Art/Acc/B3/B3 Surgery/desk 1.png" id="4_3creg"]
+[ext_resource type="Texture2D" uid="uid://deh1lo7s4mjxv" path="res://Art/Acc/B3/B3 Surgery/Normal Map/냉장고노말.png" id="4_ldwda"]
+[ext_resource type="Texture2D" uid="uid://3jwo5n2otw3x" path="res://Art/Acc/B3/B3 Surgery/Normal Map/수술의자노말.png" id="6_cm7ef"]
+[ext_resource type="Texture2D" uid="uid://5rl1nlao7j0o" path="res://Art/Acc/B3/B3 Surgery/Normal Map/데스크노말.png" id="8_is0lx"]
+[ext_resource type="Texture2D" uid="uid://biu83dokybfse" path="res://Art/Acc/B3/B3 Surgery/의료기구2.png" id="9_y8xqy"]
+[ext_resource type="Texture2D" uid="uid://d3dcj8u61dx7p" path="res://Art/Acc/B3/B3 Surgery/gas 1.png" id="10_yolkf"]
+[ext_resource type="Texture2D" uid="uid://jlvuv5nfcbtc" path="res://Art/Acc/B3/B3 Surgery/gas 2.png" id="11_5k61b"]
+[ext_resource type="Texture2D" uid="uid://bb6f7j6440ifn" path="res://Art/Acc/portal 2.png" id="12_shwrj"]
+[ext_resource type="Texture2D" uid="uid://dl2wsfhajwt0o" path="res://Art/Acc/door 2.png" id="13_3cofs"]
+[ext_resource type="Texture2D" uid="uid://c71bh26l0dtbu" path="res://Art/Acc/B3/B3 Surgery/조합도구1.png" id="14_sbpbk"]
+[ext_resource type="Texture2D" uid="uid://cco1edehf6h3f" path="res://Art/Acc/B3/B3 Surgery/Normal Map/조합도구노말.png" id="15_5e0vk"]
+[ext_resource type="Script" path="res://Surgery3FDoor.gd" id="16_eyiov"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_er1ya"]
+diffuse_texture = ExtResource("2_qvftl")
+normal_texture = ExtResource("4_ldwda")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o2ooe"]
+diffuse_texture = ExtResource("2_qvftl")
+normal_texture = ExtResource("4_ldwda")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sk76t"]
+diffuse_texture = ExtResource("3_11uyi")
+normal_texture = ExtResource("6_cm7ef")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lbc8e"]
+diffuse_texture = ExtResource("4_3creg")
+normal_texture = ExtResource("8_is0lx")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7djvi"]
+diffuse_texture = ExtResource("14_sbpbk")
+normal_texture = ExtResource("15_5e0vk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8pt7"]
+size = Vector2(192, 370)
+
+[sub_resource type="Gradient" id="Gradient_pk2i0"]
+offsets = PackedFloat32Array(0.232258, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6pxas"]
+gradient = SubResource("Gradient_pk2i0")
+width = 500
+height = 500
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.880734, 0.169725)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="DefaultBackground2" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_av3v8")
+
+[node name="DefaultBackground3" type="Sprite2D" parent="."]
+position = Vector2(2864, 540)
+texture = ExtResource("1_av3v8")
+
+[node name="Tile1" type="Sprite2D" parent="."]
+position = Vector2(960, 810.01)
+scale = Vector2(1, 0.500018)
+texture = ExtResource("1_gewod")
+
+[node name="Tile2" type="Sprite2D" parent="."]
+position = Vector2(2862, 810.01)
+scale = Vector2(1, 0.500018)
+texture = ExtResource("1_gewod")
+
+[node name="냉장고1" type="Sprite2D" parent="."]
+position = Vector2(1521, 756)
+texture = SubResource("CanvasTexture_er1ya")
+
+[node name="냉장고2" type="Sprite2D" parent="."]
+position = Vector2(1258, 756)
+texture = SubResource("CanvasTexture_o2ooe")
+
+[node name="수술침대1" type="Sprite2D" parent="."]
+position = Vector2(2217, 863)
+texture = SubResource("CanvasTexture_sk76t")
+
+[node name="Desk1" type="Sprite2D" parent="."]
+position = Vector2(277, 903)
+texture = SubResource("CanvasTexture_lbc8e")
+
+[node name="의료기구2" type="Sprite2D" parent="."]
+position = Vector2(1819, 839)
+texture = ExtResource("9_y8xqy")
+
+[node name="Gas1" type="Sprite2D" parent="."]
+position = Vector2(3349, 877)
+texture = ExtResource("10_yolkf")
+
+[node name="Gas2" type="Sprite2D" parent="."]
+position = Vector2(3451, 928)
+texture = ExtResource("11_5k61b")
+
+[node name="Portal2" type="Sprite2D" parent="."]
+position = Vector2(2885, 769)
+texture = ExtResource("12_shwrj")
+
+[node name="Door2" type="Sprite2D" parent="."]
+position = Vector2(2900, 784)
+texture = ExtResource("13_3cofs")
+
+[node name="조합도구1" type="Sprite2D" parent="."]
+position = Vector2(190, 706)
+texture = SubResource("CanvasTexture_7djvi")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("16_eyiov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2903, 769)
+shape = SubResource("RectangleShape2D_e8pt7")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(2018, 759)
+energy = 1.43
+texture = SubResource("GradientTexture2D_6pxas")
+height = 70.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

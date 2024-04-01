@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=6 format=3 uid="uid://c6o2wlw17mj42"]
+
+[ext_resource type="Resource" uid="uid://br8nu6sushmok" path="res://Resource/Item/Coke.tres" id="1_klgbb"]
+[ext_resource type="Resource" uid="uid://xym73bu6nbkl" path="res://Resource/Item/PrisonKey.tres" id="2_ayvjq"]
+[ext_resource type="Resource" uid="uid://cm0w53g5u24e3" path="res://Resource/Item/Drug.tres" id="3_a56vp"]
+[ext_resource type="Resource" uid="uid://djn8b4gn0jn0s" path="res://Resource/Item/3Fkey.tres" id="4_no1wu"]
+[ext_resource type="Script" path="res://Scrips/Inventory/InventoryData.gd" id="5_ckcod"]
+
+[resource]
+script = ExtResource("5_ckcod")
+items = Array[Resource("res://Scrips/Inventory/ItemData.gd")]([ExtResource("1_klgbb"), ExtResource("2_ayvjq"), ExtResource("3_a56vp"), ExtResource("4_no1wu")])

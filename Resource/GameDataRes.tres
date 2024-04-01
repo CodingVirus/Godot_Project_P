@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="GameData_Resource" load_steps=2 format=3 uid="uid://c17p3237ty0kq"]
+
+[ext_resource type="Script" path="res://Resource/GameDataResource.gd" id="1_rg0yn"]
+
+[resource]
+script = ExtResource("1_rg0yn")
+save_scene_path = "res://Scene/Level/Level1.tscn"
+is_first_start = 0
+is_accept_generator_quest = false
+is_fix_generator = false
+is_accept_cluey_quest_first = false
+is_clear_cluey_quest_first = false
+is_prison_door_open = false
+is_accept_cluey_quest_second = false
+is_clear_cluey_quest_second = false
+is_use_computer = false
+is_incinerator_ready = false
+is_incinerator_password_correct = false
+is_b3_stair_open = false
+dialogue_language = "res://Dialogue/KOREAN.dialogue"

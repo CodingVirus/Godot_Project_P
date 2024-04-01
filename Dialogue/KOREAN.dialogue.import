@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://comv3v3xqt75t"
+path="res://.godot/imported/KOREAN.dialogue-6185ffdfae413488e97cdd36028fea0a.tres"
+
+[deps]
+
+source_file="res://Dialogue/KOREAN.dialogue"
+dest_files=["res://.godot/imported/KOREAN.dialogue-6185ffdfae413488e97cdd36028fea0a.tres"]
+
+[params]
+
+defaults=true

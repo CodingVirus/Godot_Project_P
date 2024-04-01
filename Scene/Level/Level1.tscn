@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1oqm4xxju8vm"]
+
+[ext_resource type="Script" path="res://Scrips/Levels/Level1.gd" id="1_rl5l5"]
+[ext_resource type="PackedScene" uid="uid://b2h0uw1pumr20" path="res://Scene/OutSide/OutSide.tscn" id="1_rlwb7"]
+[ext_resource type="PackedScene" uid="uid://cfv6fbhpe045l" path="res://Scene/OutSide/House.tscn" id="2_c1r4l"]
+[ext_resource type="PackedScene" uid="uid://bcr5mdxfub866" path="res://Scene/Player.tscn" id="4_4w20l"]
+[ext_resource type="PackedScene" uid="uid://ch3626a26kwtt" path="res://Scene/MainCamera.tscn" id="5_e8eub"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_rl5l5")
+
+[node name="OutSide" parent="." instance=ExtResource("1_rlwb7")]
+
+[node name="HouseOutDoor" parent="OutSide" index="6" node_paths=PackedStringArray("nextDoor")]
+nextDoor = NodePath("../../House/HouseIndoor/HouseIndoorMarker")
+
+[node name="House" parent="." instance=ExtResource("2_c1r4l")]
+position = Vector2(0, 1825)
+
+[node name="HouseIndoor" parent="House" index="5" node_paths=PackedStringArray("nextDoor")]
+nextDoor = NodePath("../../OutSide/HouseOutDoor/HouseOutDoorMarker")
+
+[node name="Player" parent="." instance=ExtResource("4_4w20l")]
+position = Vector2(4230, 846)
+
+[node name="MainCamera" parent="." instance=ExtResource("5_e8eub")]
+position = Vector2(4144, 520)
+maxWidthSize = 1.4
+
+[editable path="OutSide"]
+[editable path="House"]

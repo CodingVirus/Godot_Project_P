@@ -1,0 +1,107 @@
+[gd_scene load_steps=16 format=3 uid="uid://cc48rd0uo0h3s"]
+
+[ext_resource type="Texture2D" uid="uid://bgh50lj6jhwr4" path="res://Art/Background/default background 1.png" id="1_3p835"]
+[ext_resource type="Texture2D" uid="uid://bngb0mxejirs8" path="res://Art/Tile/Tile1.png" id="2_ehpao"]
+[ext_resource type="Script" path="res://Scrips/RefactorScript/Teleporter.gd" id="3_guw6d"]
+[ext_resource type="Texture2D" uid="uid://biu83dokybfse" path="res://Art/Acc/B3/B3 Surgery/의료기구2.png" id="3_voggl"]
+[ext_resource type="Texture2D" uid="uid://dmnvglflc3dxt" path="res://Art/Acc/B3/B3 Prison/bed.png" id="4_084li"]
+[ext_resource type="Texture2D" uid="uid://rfansh0ucjtu" path="res://Art/cluey (Unity용 with line).png" id="5_x8j20"]
+[ext_resource type="Texture2D" uid="uid://bcqvivfuy3s43" path="res://Art/Acc/portal 2_2.png" id="6_gyev2"]
+[ext_resource type="Script" path="res://Scrips/RefactorScript/Interaction.gd" id="7_5y543"]
+[ext_resource type="Texture2D" uid="uid://cer6fu8bfudjy" path="res://Art/Tile/ceiling 0.png" id="7_nnsst"]
+[ext_resource type="Texture2D" uid="uid://dyotrlk1ar0j5" path="res://Art/Acc/light line.png" id="8_0hyvx"]
+[ext_resource type="Texture2D" uid="uid://b5irrumf0bhm7" path="res://Art/Acc/light on.png" id="9_nnhu6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ukin"]
+size = Vector2(176, 369)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfpc8"]
+size = Vector2(476, 247)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o35c"]
+size = Vector2(1925, 173)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_datg3"]
+size = Vector2(242, 1186)
+
+[node name="Prison" type="Node2D"]
+
+[node name="DefaultBackground1" type="Sprite2D" parent="."]
+position = Vector2(960, 539)
+texture = ExtResource("1_3p835")
+
+[node name="PrisonInDoor" type="Area2D" parent="."]
+position = Vector2(295, 796)
+script = ExtResource("3_guw6d")
+
+[node name="Door" type="Sprite2D" parent="PrisonInDoor"]
+texture = ExtResource("6_gyev2")
+
+[node name="PrisonInDoorMarker" type="Marker2D" parent="PrisonInDoor"]
+position = Vector2(17, 259)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrisonInDoor"]
+position = Vector2(18, -1)
+shape = SubResource("RectangleShape2D_3ukin")
+
+[node name="Tile1" type="Sprite2D" parent="."]
+position = Vector2(956, 634)
+scale = Vector2(1.11882, 1)
+texture = ExtResource("2_ehpao")
+
+[node name="MedicalEquipment" type="Sprite2D" parent="."]
+position = Vector2(1331, 835)
+texture = ExtResource("3_voggl")
+
+[node name="Bed" type="Sprite2D" parent="."]
+position = Vector2(1356, 929)
+texture = ExtResource("4_084li")
+flip_h = true
+
+[node name="Cluey" type="Area2D" parent="."]
+position = Vector2(1495, 863)
+script = ExtResource("7_5y543")
+
+[node name="Cluey" type="Sprite2D" parent="Cluey"]
+texture = ExtResource("5_x8j20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cluey"]
+position = Vector2(-166, 1.5)
+shape = SubResource("RectangleShape2D_rfpc8")
+
+[node name="Ceiling0" type="Sprite2D" parent="."]
+position = Vector2(964, 443)
+scale = Vector2(1.08, 1)
+texture = ExtResource("7_nnsst")
+
+[node name="LightLine" type="Sprite2D" parent="."]
+position = Vector2(925, 112)
+texture = ExtResource("8_0hyvx")
+
+[node name="LightOn" type="Sprite2D" parent="LightLine"]
+position = Vector2(1, 64)
+texture = ExtResource("9_nnhu6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(952.5, 1104.5)
+shape = SubResource("RectangleShape2D_8o35c")
+
+[node name="Wall" type="Node2D" parent="."]
+position = Vector2(-50, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+position = Vector2(7, 583)
+shape = SubResource("RectangleShape2D_datg3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+position = Vector2(2020, 583)
+shape = SubResource("RectangleShape2D_datg3")
+
+[connection signal="body_entered" from="PrisonInDoor" to="PrisonInDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="PrisonInDoor" to="PrisonInDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="Cluey" to="Cluey" method="_on_body_entered"]
+[connection signal="body_exited" from="Cluey" to="Cluey" method="_on_body_exited"]

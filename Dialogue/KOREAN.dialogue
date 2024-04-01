@@ -1,0 +1,243 @@
+
+~ Item_pull
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+A: 이미 가지고 있어
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+
+~ phone_scene
+set GameData.isDialogueStart = EnumData.DialogueState.START
+A: 여보세요.
+A: 전화 받았습니다.
+B: 전압기가 고장 났는데 혹시 지금 바로 수리가 가능?
+A: 주소가 어떻게 됩니까?
+do UImanager.get_node("FadeInOut").Play()
+do SceneManager.DelayChangeScene("res://Scene/CutScene/DriveCutScene.tscn", 3)
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+
+~ Doctor_First_Meet
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+if GameData.gameDataRes.is_accept_generator_quest == false:
+	Doctor: 안녕하세요. 만나서 반갑습니다.
+	Doctor: 바쁘신데 와주셔서 감사합니다.
+	Player: 제가 수리할 전압기는 어디에 있죠?
+	Doctor: 집 밖으로 나가서 왼쪽으로 가시면 있습니다.
+	do GameData.gameDataRes.is_accept_generator_quest = true
+elif GameData.gameDataRes.is_fix_generator == true:
+	=> Fix_Generate
+elif GameData.gameDataRes.is_accept_generator_quest == true:
+	Doctor: 전압기는 집 밖으로 나가서 왼쪽으로 가시면 됩니다.
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+
+
+
+~ Fix_Generate
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+Player: 수리는 완료 됐습니다.
+Doctor: 고생하셨는데 여기 음료라도 한잔 하시오.
+Player: 그럼...
+N: (음료를 마신다.)
+N: (벌컥벌컥)
+N: (갑자기 졸음이 몰려온다...)
+do UImanager.get_node("FadeInOut").Play()
+do SceneManager.DelayChangeScene("res://Scene/CutScene/DrinkDrug/DrinkDrug.tscn", 3)
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+
+
+~ Generator
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+A: 의뢰자한테 먼저 가보자...
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+
+
+
+
+~ GeneratorComplete
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+A: 수리가 완료됐다.
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+
+
+
+
+~ Using_vendingmachine
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+B: 자판기를 사용하시겠습니까?
+- 예
+	do UImanager.get_node("Inventory").AddItem(0)
+- 아니요 
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+
+
+
+
+~ Using_item
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+B: 아이템을 사용하시겠습니까?
+- 예
+	do UImanager.get_node("Inventory").UseItem()
+- 아니요 
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+~ Using_prison_key
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+B: 감옥 열쇠다.
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+~ First_meet_cluey
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+if GameData.gameDataRes.is_accept_cluey_quest_first == false:
+	???: 자네는 누구지?
+	Player: 잡혀왔음
+	???: 그렇군...
+	Player: 여기는 어디지?
+	???: 일단 감옥문을 열지
+	???: 자네가 나왔던 문틈 위에 열쇠가 있을걸세.
+	???: 그 열쇠로 이 감옥문을 열고 얘기합세
+	do GameData.gameDataRes.is_accept_cluey_quest_first = true
+elif GameData.gameDataRes.is_accept_cluey_quest_first == true:
+	???: 감옥 열쇠는 자네가 나온 문틈 위에 있다네...
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+~ Incinerator_rock
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+if GameData.gameDataRes.is_incinerator_ready == false:
+	B: 여기는 아닌것 같다...
+elif GameData.gameDataRes.is_incinerator_ready == true:
+	do SceneManager.DelayChangeScene("res://Scene/KeyPad.tscn", 3)
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+~ Second_meet_cluey
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+if GameData.gameDataRes.is_accept_cluey_quest_second == false:
+	Player: 당신은 누구지? 여기는 또 어디지?
+	???: 당신도 박사한테 당한 모양이군.
+	???: 우선 반갑네. 내 이름은 클루이라고 하네
+	Cluey: 이 꼴이 나기 전에는 박사 밑에서 일하던 연구원이었다네
+	Cluey: 하지만 박사한테 속아서 실험체가 되고 나서 이런 꼴이 됐지
+	Cluey: 우리가 있는 곳은 박사 집 밑에 있는 지하 실험실이라네
+	Player: 여길 어떻게 빠져 나갈수 있지?
+	Cluey: 우선 나의 부탁을 좀 들어줄수 있겠나?
+	Cluey: 그러면 내가 당신을 여기서 빠져나갈 수 있게 도와주지.
+	Player: 무엇을 원하지?
+	Cluey: 당신이 나온 수술실에 가면 약물 배합기가 있을걸세.
+	Cluey: 배합기 옆에 있는 컴퓨터를 사용해서 배합을 할 수 있다네
+	Cluey: 컴퓨터에 들어가면 '안식처'라는 파일이 있을걸세.
+	Cluey: 그 파일을 보고 약물을 배합해서 나에게 가져다 줄 수 있겠나?
+	Player: 좋아
+	Cluey: 고맙네 여기서 기다리고 있겠네.
+	do GameData.gameDataRes.is_accept_cluey_quest_second = true
+	do GameData.gameDataRes.is_use_computer = true
+elif GameData.gameDataRes.is_accept_cluey_quest_second == true:
+	Cluey: 배합기 컴퓨터는 수술실 끝쪽에 있다네...
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+~ Goodbye_cluey
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+if GameData.gameDataRes.is_clear_cluey_quest_second == false:
+	do UImanager.get_node("Inventory").DeleteItem(EnumData.ItemName.DRUG)
+	Cluey: 고맙네...
+	Cluey: 이거를 받게나
+	N: (열쇠를 받았다)
+	do UImanager.get_node("Inventory").AddItem(EnumData.ItemName.KEY_3F)
+	Cluey: 2층으로 올라가는 계단문 열쇠네네
+	Cluey: 사지가 멀쩡할때 빼왔지만 아쉽게도 나는 탈출에 실패했지
+	Cluey: 어쩌면 자네라면 가능할지도 모르겠군...
+	Cluey: 명심하게 절대로 오른쪽 끝에 감옥문을 열어서는 안된다
+	Cluey: 그럼 행운을 빌겠네...
+	do GameData.gameDataRes.is_clear_cluey_quest_second = true
+	do GameData.gameDataRes.is_use_computer = false
+elif GameData.gameDataRes.is_clear_cluey_quest_second == true:
+	N: 숨을 쉬지 않는다.
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+~ Computer
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+if GameData.gameDataRes.is_use_computer == false:
+	B: 아직 사용할 필요 없어.
+elif GameData.gameDataRes.is_use_computer == true:
+	do UImanager.UIOff()
+	do UImanager.get_node("FadeInOut").Play()
+	do SceneManager.DelayChangeScene("res://Scene/3F/Computer.tscn", 3)
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+~ Mechanical_room
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+if GameData.gameDataRes.is_accept_cluey_quest_second == false:
+	B: 이곳이 아닌 것 같다.
+elif GameData.gameDataRes.is_accept_cluey_quest_second == true:
+	do UImanager.get_node("FadeInOut").TeleportPlay()
+	do SceneManager.DelayChangeScene("res://Scene/SavePoint3/MechanicalRoom.tscn", 0.2)
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+~ Stair_door_3F
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+B: 위층으로 올라가는 계단이 보인다.
+B: 열쇠가 필요하다.
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END
+
+
+~ Monster_prison
+set GameData.isDialogueStart = EnumData.DialogueState.START
+set GameData.isPlayerState = EnumData.PlayerState.STOP
+if UImanager.get_node("Inventory").FindItem(2) == false:
+	B: 이곳이 아니다.
+elif UImanager.get_node("Inventory").FindItem(2) == true:
+	do UImanager.get_node("Inventory").DeleteItem(2)
+	do UImanager.get_node("FadeInOut").TeleportPlay()
+	do SceneManager.DelayChangeScene("res://Scene/SavePoint4/2_2FHallWay.tscn", 0.2)
+set GameData.isPlayerState = EnumData.PlayerState.IDLE
+set GameData.isDialogueStart = EnumData.DialogueState.END
+=> END

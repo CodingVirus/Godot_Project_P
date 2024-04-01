@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://djn8b4gn0jn0s"]
+
+[ext_resource type="Texture2D" uid="uid://cc3hhlgchnrxk" path="res://Art/Item/Item/key.png" id="1_o0nha"]
+[ext_resource type="Script" path="res://Scrips/Inventory/ItemData.gd" id="2_upki4"]
+
+[resource]
+script = ExtResource("2_upki4")
+item_name = 3
+item_image = ExtResource("1_o0nha")
+is_expendable = false
+is_only_one = true

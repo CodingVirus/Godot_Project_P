@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://cc8u6r2i2qm81"]
+
+[ext_resource type="Texture2D" uid="uid://dr87qu0mn0u2n" path="res://Art/Background/hall way/hall way 4_2.png" id="2_4iehx"]
+[ext_resource type="Script" path="res://Scrips/RefactorScript/Teleporter.gd" id="2_gbirh"]
+[ext_resource type="Texture2D" uid="uid://c3nq8wi7uuc7d" path="res://Art/Acc/stairs 5_1.png" id="4_uo46e"]
+[ext_resource type="Texture2D" uid="uid://bofxsoki187t7" path="res://Art/Acc/stairs 4_1.png" id="5_53e40"]
+[ext_resource type="Texture2D" uid="uid://bngb0mxejirs8" path="res://Art/Tile/Tile1.png" id="6_y1lre"]
+[ext_resource type="Texture2D" uid="uid://ekaq1fmnfk3p" path="res://Art/Acc/Sign/floor/B2_2.png" id="9_0x3ib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obo8w"]
+size = Vector2(211, 383)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jqic"]
+size = Vector2(217, 378)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g6kn"]
+size = Vector2(9977, 229)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6brm"]
+size = Vector2(448, 1069)
+
+[node name="2FHallWay" type="Node2D"]
+
+[node name="HallWay42" type="Sprite2D" parent="."]
+position = Vector2(968, 477)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_4iehx")
+
+[node name="HallWay43" type="Sprite2D" parent="."]
+position = Vector2(2888, 477)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_4iehx")
+
+[node name="HallWay44" type="Sprite2D" parent="."]
+position = Vector2(4808, 477)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_4iehx")
+
+[node name="HallWay45" type="Sprite2D" parent="."]
+position = Vector2(6728, 477)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_4iehx")
+
+[node name="HallWay46" type="Sprite2D" parent="."]
+position = Vector2(8648, 477)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_4iehx")
+
+[node name="DownStair" type="Area2D" parent="."]
+script = ExtResource("2_gbirh")
+
+[node name="Stairs51" type="Sprite2D" parent="DownStair"]
+position = Vector2(349, 750)
+texture = ExtResource("4_uo46e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownStair"]
+position = Vector2(362.5, 753.5)
+shape = SubResource("RectangleShape2D_obo8w")
+
+[node name="B2DownStairMarker" type="Marker2D" parent="DownStair"]
+position = Vector2(372, 1020)
+
+[node name="UpStair" type="Area2D" parent="."]
+
+[node name="Stairs41" type="Sprite2D" parent="UpStair"]
+position = Vector2(920, 749)
+texture = ExtResource("5_53e40")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpStair"]
+position = Vector2(939.5, 759)
+shape = SubResource("RectangleShape2D_7jqic")
+
+[node name="Tile1" type="Sprite2D" parent="."]
+position = Vector2(960, 613)
+texture = ExtResource("6_y1lre")
+
+[node name="Tile2" type="Sprite2D" parent="."]
+position = Vector2(2880, 613)
+texture = ExtResource("6_y1lre")
+
+[node name="Tile3" type="Sprite2D" parent="."]
+position = Vector2(4800, 613)
+texture = ExtResource("6_y1lre")
+
+[node name="Tile4" type="Sprite2D" parent="."]
+position = Vector2(6720, 613)
+texture = ExtResource("6_y1lre")
+
+[node name="Tile5" type="Sprite2D" parent="."]
+position = Vector2(8640, 613)
+texture = ExtResource("6_y1lre")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4748.5, 1114.5)
+shape = SubResource("RectangleShape2D_5g6kn")
+
+[node name="B22" type="Sprite2D" parent="."]
+position = Vector2(639, 622)
+texture = ExtResource("9_0x3ib")
+
+[node name="Wall" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+position = Vector2(-161, 524.5)
+shape = SubResource("RectangleShape2D_v6brm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+position = Vector2(9554, 524.5)
+shape = SubResource("RectangleShape2D_v6brm")
+
+[connection signal="body_entered" from="DownStair" to="DownStair" method="_on_body_entered"]
+[connection signal="body_exited" from="DownStair" to="DownStair" method="_on_body_exited"]

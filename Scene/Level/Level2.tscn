@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpsva7d05f4xj"]
+
+[ext_resource type="PackedScene" uid="uid://bcvu1cmk7t4wo" path="res://Scene/3F/B3surgery.tscn" id="1_c1ayu"]
+[ext_resource type="Script" path="res://Scrips/Levels/Level2.gd" id="1_deosh"]
+[ext_resource type="PackedScene" uid="uid://et0hwdjyk8cn" path="res://Scene/3F/3FHallway.tscn" id="2_eym41"]
+[ext_resource type="PackedScene" uid="uid://bcr5mdxfub866" path="res://Scene/Player.tscn" id="3_5acix"]
+[ext_resource type="PackedScene" uid="uid://ch3626a26kwtt" path="res://Scene/MainCamera.tscn" id="4_0uwc1"]
+[ext_resource type="PackedScene" uid="uid://cc48rd0uo0h3s" path="res://Scene/3F/Prison.tscn" id="6_8alfg"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_deosh")
+
+[node name="B3surgery" parent="." instance=ExtResource("1_c1ayu")]
+
+[node name="Door" parent="B3surgery" index="15" node_paths=PackedStringArray("nextDoor")]
+nextDoor = NodePath("../../3FHallway/SurgeryDoor/SurgeryDoorMarker")
+
+[node name="3FHallway" parent="." instance=ExtResource("2_eym41")]
+position = Vector2(0, 1668)
+scale = Vector2(1, 1.01215)
+
+[node name="3FStairDoor" parent="3FHallway" index="3"]
+position = Vector2(0, -7.90405)
+
+[node name="PrisonOutDoor" parent="3FHallway" index="4" node_paths=PackedStringArray("nextDoor")]
+nextDoor = NodePath("../../Prison/PrisonInDoor/PrisonInDoorMarker")
+
+[node name="SurgeryDoor" parent="3FHallway" index="5" node_paths=PackedStringArray("nextDoor")]
+nextDoor = NodePath("../../B3surgery/Door/DoorMarker")
+
+[node name="Prison" parent="." instance=ExtResource("6_8alfg")]
+position = Vector2(0, 3847)
+
+[node name="PrisonInDoor" parent="Prison" index="1" node_paths=PackedStringArray("nextDoor")]
+nextDoor = NodePath("../../3FHallway/PrisonOutDoor/ProsionOutDoorMarker")
+
+[node name="Player" parent="." instance=ExtResource("3_5acix")]
+position = Vector2(2233, 897)
+
+[node name="MainCamera" parent="." instance=ExtResource("4_0uwc1")]
+position = Vector2(2285, 560)
+maxWidthSize = 5.0
+
+[editable path="B3surgery"]
+[editable path="3FHallway"]
+[editable path="Prison"]

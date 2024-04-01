@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://b6jhs5mswss16"]
+
+[ext_resource type="Texture2D" uid="uid://bgh50lj6jhwr4" path="res://Art/Background/default background 1.png" id="1_ipo62"]
+[ext_resource type="Texture2D" uid="uid://cvmvxkeukdjop" path="res://Art/Tile/ceiling 1.png" id="2_eyq6i"]
+[ext_resource type="Texture2D" uid="uid://bb6f7j6440ifn" path="res://Art/Acc/portal 2.png" id="3_g0fyl"]
+[ext_resource type="Texture2D" uid="uid://bngb0mxejirs8" path="res://Art/Tile/Tile1.png" id="4_qc3do"]
+[ext_resource type="Texture2D" uid="uid://blgikajmiy11p" path="res://Art/Acc/B3/B3 Mechanical room/machine 2.png" id="5_cte8l"]
+[ext_resource type="Texture2D" uid="uid://dwno2gjolc4kk" path="res://Art/Acc/B3/B3 Mechanical room/machine 1.png" id="6_i3ane"]
+[ext_resource type="Texture2D" uid="uid://cbobvvxew11yb" path="res://Art/Acc/B3/B3 Mechanical room/board 1.png" id="7_3ikwy"]
+[ext_resource type="Texture2D" uid="uid://dyotrlk1ar0j5" path="res://Art/Acc/light line.png" id="8_a8pot"]
+[ext_resource type="Texture2D" uid="uid://sd4had5jlw4c" path="res://Art/Acc/B3/B3 Mechanical room/machine 3.png" id="8_ctcek"]
+[ext_resource type="Texture2D" uid="uid://b5irrumf0bhm7" path="res://Art/Acc/light on.png" id="9_kwndr"]
+[ext_resource type="Texture2D" uid="uid://d0r30xbned0y8" path="res://Art/Tile/ceiling line 2.png" id="9_yk1jo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm66f"]
+size = Vector2(2413, 201.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="DefaultBackground1" type="Sprite2D" parent="."]
+position = Vector2(960, 534)
+texture = ExtResource("1_ipo62")
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(998, 776)
+texture = ExtResource("3_g0fyl")
+
+[node name="Tile1" type="Sprite2D" parent="."]
+position = Vector2(961, 632)
+texture = ExtResource("4_qc3do")
+
+[node name="Machine1" type="Sprite2D" parent="."]
+position = Vector2(594, 814)
+texture = ExtResource("6_i3ane")
+
+[node name="Machine2" type="Sprite2D" parent="."]
+position = Vector2(404, 821)
+texture = ExtResource("5_cte8l")
+
+[node name="Machine3" type="Sprite2D" parent="."]
+position = Vector2(210, 813.5)
+texture = ExtResource("6_i3ane")
+
+[node name="Board1" type="Sprite2D" parent="."]
+position = Vector2(1618, 590)
+texture = ExtResource("7_3ikwy")
+
+[node name="Machine3" type="Sprite2D" parent="Board1"]
+position = Vector2(-15, 243)
+texture = ExtResource("8_ctcek")
+
+[node name="CeilingLine2" type="Sprite2D" parent="."]
+position = Vector2(1048, 510)
+texture = ExtResource("9_yk1jo")
+
+[node name="LightLine" type="Sprite2D" parent="."]
+position = Vector2(971, 166)
+texture = ExtResource("8_a8pot")
+
+[node name="LightOn" type="Sprite2D" parent="LightLine"]
+position = Vector2(1, 64)
+texture = ExtResource("9_kwndr")
+
+[node name="Ceiling1" type="Sprite2D" parent="."]
+position = Vector2(1013, 505)
+scale = Vector2(1.1, 1)
+texture = ExtResource("2_eyq6i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1026, 1110.75)
+shape = SubResource("RectangleShape2D_vm66f")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8mjq6q4il07h"]
+
+[ext_resource type="Script" path="res://Scrips/CutScene/DrinkDrug.gd" id="1_uwtpj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sq3qq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwtpj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.180392, 0.180392, 0.180392, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("CanvasTexture_sq3qq")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -435.0
+offset_top = -276.0
+offset_right = 525.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+text = "Dring Drug Scene Test"

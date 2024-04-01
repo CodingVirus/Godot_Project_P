@@ -1,0 +1,411 @@
+[gd_scene load_steps=33 format=3 uid="uid://et0hwdjyk8cn"]
+
+[ext_resource type="Texture2D" uid="uid://c6fp21fextpg7" path="res://Art/Background/hall way/hall way 2.png" id="1_uus8h"]
+[ext_resource type="Texture2D" uid="uid://bngb0mxejirs8" path="res://Art/Tile/Tile1.png" id="2_t4a6l"]
+[ext_resource type="Texture2D" uid="uid://dn177iicrvc11" path="res://Art/Acc/stairs 4_2.png" id="3_lmkih"]
+[ext_resource type="Texture2D" uid="uid://bg4ytm0jtu8jt" path="res://Art/Acc/철창문1.png" id="4_7sxq8"]
+[ext_resource type="Script" path="res://Scrips/RefactorScript/Teleporter.gd" id="5_2fxfy"]
+[ext_resource type="Texture2D" uid="uid://bcqvivfuy3s43" path="res://Art/Acc/portal 2_2.png" id="5_xcwkr"]
+[ext_resource type="Texture2D" uid="uid://bravg1sbyhve5" path="res://Art/Acc/portal 2_2 (lock).png" id="6_33j85"]
+[ext_resource type="Texture2D" uid="uid://gguhr7nop4ih" path="res://Art/Acc/cabinet 1.png" id="9_p2cob"]
+[ext_resource type="Texture2D" uid="uid://cvmvxkeukdjop" path="res://Art/Tile/ceiling 1.png" id="10_b0hs3"]
+[ext_resource type="Script" path="res://Scrips/Hide.gd" id="11_s2xfj"]
+[ext_resource type="Texture2D" uid="uid://d0r30xbned0y8" path="res://Art/Tile/ceiling line 2.png" id="11_uobta"]
+[ext_resource type="Texture2D" uid="uid://dfa1dpntxvi1n" path="res://Art/Tile/ceiling line 4.png" id="12_w2y4l"]
+[ext_resource type="Texture2D" uid="uid://lat1fxtichwj" path="res://Art/Tile/ceiling line 3.png" id="13_1bb0n"]
+[ext_resource type="Texture2D" uid="uid://dyotrlk1ar0j5" path="res://Art/Acc/light line.png" id="15_663vv"]
+[ext_resource type="Texture2D" uid="uid://b5irrumf0bhm7" path="res://Art/Acc/light on.png" id="16_t6f8e"]
+[ext_resource type="Texture2D" uid="uid://dobfu0ijh606k" path="res://Art/Acc/B3/B3 Main/Key Pad1.png" id="17_j5pxk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5ptc"]
+size = Vector2(448, 1069)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mwmr"]
+size = Vector2(212, 381)
+
+[sub_resource type="Animation" id="Animation_mwbje"]
+resource_name = "3FUpStairDoorOpen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("3FStair/IronBarDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(20, 15), Vector2(-158, 15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3dgkn"]
+_data = {
+"3FUpStairDoorOpen": SubResource("Animation_mwbje")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw2k0"]
+size = Vector2(213, 408.5)
+
+[sub_resource type="Animation" id="Animation_mhrg4"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_oarqa"]
+resource_name = "open_prison_out_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Prison/IronBarDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(14, 13), Vector2(-170, 13)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jqifr"]
+_data = {
+"RESET": SubResource("Animation_mhrg4"),
+"open_prison_out_door": SubResource("Animation_oarqa")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5buin"]
+size = Vector2(202.75, 376.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl1dh"]
+size = Vector2(239.472, 190.1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr6p8"]
+size = Vector2(206, 379)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gh7em"]
+size = Vector2(184, 398)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2geq6"]
+size = Vector2(10738, 127.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6ifr"]
+size = Vector2(111, 347)
+
+[sub_resource type="Gradient" id="Gradient_pk2i0"]
+offsets = PackedFloat32Array(0.232258, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7fpej"]
+gradient = SubResource("Gradient_pk2i0")
+width = 500
+height = 500
+fill = 1
+fill_from = Vector2(0.509174, 0.481651)
+fill_to = Vector2(0.743119, 0.844037)
+
+[node name="3FHallway" type="Node2D"]
+
+[node name="BackGround" type="Node2D" parent="."]
+
+[node name="HallWay2" type="Sprite2D" parent="BackGround"]
+position = Vector2(960, 540)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_uus8h")
+
+[node name="HallWay3" type="Sprite2D" parent="BackGround"]
+position = Vector2(2880, 540)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_uus8h")
+
+[node name="HallWay4" type="Sprite2D" parent="BackGround"]
+position = Vector2(4800, 540)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_uus8h")
+
+[node name="HallWay5" type="Sprite2D" parent="BackGround"]
+position = Vector2(6720, 540)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_uus8h")
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="Tile1" type="Sprite2D" parent="Floor"]
+position = Vector2(964, 673)
+texture = ExtResource("2_t4a6l")
+
+[node name="Tile7" type="Sprite2D" parent="Floor"]
+position = Vector2(124, 673)
+texture = ExtResource("2_t4a6l")
+
+[node name="Tile2" type="Sprite2D" parent="Floor"]
+position = Vector2(2852, 673)
+texture = ExtResource("2_t4a6l")
+
+[node name="Tile3" type="Sprite2D" parent="Floor"]
+position = Vector2(4722, 673)
+texture = ExtResource("2_t4a6l")
+
+[node name="Tile4" type="Sprite2D" parent="Floor"]
+position = Vector2(6556, 673)
+texture = ExtResource("2_t4a6l")
+
+[node name="Tile5" type="Sprite2D" parent="Floor"]
+position = Vector2(8426, 673)
+texture = ExtResource("2_t4a6l")
+
+[node name="Wall" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+position = Vector2(-161, 524.5)
+shape = SubResource("RectangleShape2D_o5ptc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+position = Vector2(7802, 524.5)
+shape = SubResource("RectangleShape2D_o5ptc")
+
+[node name="3FStairDoor" type="Area2D" parent="."]
+script = ExtResource("5_2fxfy")
+
+[node name="3FStair" type="Sprite2D" parent="3FStairDoor"]
+position = Vector2(625, 804)
+texture = ExtResource("3_lmkih")
+
+[node name="IronBarDoor" type="Sprite2D" parent="3FStairDoor/3FStair"]
+position = Vector2(20, 15)
+texture = ExtResource("4_7sxq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3FStairDoor"]
+position = Vector2(652, 820.5)
+shape = SubResource("RectangleShape2D_4mwmr")
+
+[node name="3FUpStairMarker" type="Marker2D" parent="3FStairDoor"]
+position = Vector2(668, 1061)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="3FStairDoor"]
+libraries = {
+"": SubResource("AnimationLibrary_3dgkn")
+}
+
+[node name="PrisonOutDoor" type="Area2D" parent="."]
+script = ExtResource("5_2fxfy")
+
+[node name="Prison" type="Sprite2D" parent="PrisonOutDoor"]
+position = Vector2(1705, 801)
+texture = ExtResource("5_xcwkr")
+
+[node name="IronBarDoor" type="Sprite2D" parent="PrisonOutDoor/Prison"]
+position = Vector2(14, 13)
+texture = ExtResource("4_7sxq8")
+
+[node name="ProsionOutDoorMarker" type="Marker2D" parent="PrisonOutDoor"]
+position = Vector2(1733, 1068)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrisonOutDoor"]
+position = Vector2(1716.5, 809.25)
+shape = SubResource("RectangleShape2D_jw2k0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PrisonOutDoor"]
+libraries = {
+"": SubResource("AnimationLibrary_jqifr")
+}
+
+[node name="SurgeryDoor" type="Area2D" parent="."]
+script = ExtResource("5_2fxfy")
+
+[node name="SurgeryDoorMarker" type="Marker2D" parent="SurgeryDoor"]
+position = Vector2(2749, 1047)
+
+[node name="Surgery" type="Sprite2D" parent="SurgeryDoor"]
+position = Vector2(2712, 809)
+texture = ExtResource("6_33j85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SurgeryDoor"]
+position = Vector2(2731.63, 817)
+shape = SubResource("RectangleShape2D_5buin")
+
+[node name="CorpseDoor" type="Area2D" parent="."]
+position = Vector2(4956, 809)
+script = ExtResource("5_2fxfy")
+
+[node name="CorpRoomKeyPad" type="Sprite2D" parent="CorpseDoor"]
+position = Vector2(198, -69)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("17_j5pxk")
+
+[node name="CorpRoom" type="Sprite2D" parent="CorpseDoor"]
+texture = ExtResource("6_33j85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorpseDoor"]
+position = Vector2(92.2261, -7.5)
+rotation = -3.14159
+scale = Vector2(1.35109, -1.98317)
+shape = SubResource("RectangleShape2D_tl1dh")
+
+[node name="CorpseOutDoorMarker" type="Marker2D" parent="CorpseDoor"]
+position = Vector2(40, 254)
+
+[node name="MonsterPrisonDoor" type="Area2D" parent="."]
+script = ExtResource("5_2fxfy")
+
+[node name="MonsterPrison" type="Sprite2D" parent="MonsterPrisonDoor"]
+position = Vector2(6066, 810)
+texture = ExtResource("5_xcwkr")
+
+[node name="IronBarDoor" type="Sprite2D" parent="MonsterPrisonDoor/MonsterPrison"]
+position = Vector2(26, 13)
+texture = ExtResource("4_7sxq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonsterPrisonDoor"]
+position = Vector2(6090, 812.5)
+shape = SubResource("RectangleShape2D_mr6p8")
+
+[node name="MonsterPrisonOutDoorMarker" type="Marker2D" parent="MonsterPrisonDoor"]
+position = Vector2(6102, 1063)
+
+[node name="MechanicalRoomDoor" type="Area2D" parent="."]
+script = ExtResource("5_2fxfy")
+
+[node name="MechanicalRoom" type="Sprite2D" parent="MechanicalRoomDoor"]
+position = Vector2(7059, 809)
+texture = ExtResource("6_33j85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MechanicalRoomDoor"]
+position = Vector2(7081, 822)
+shape = SubResource("RectangleShape2D_gh7em")
+
+[node name="MechanicalRoomOutDoorMarker" type="Marker2D" parent="MechanicalRoomDoor"]
+position = Vector2(7108, 1067)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4929, 1103.75)
+shape = SubResource("RectangleShape2D_2geq6")
+
+[node name="Cabinet1" type="Sprite2D" parent="."]
+position = Vector2(3831, 835)
+texture = ExtResource("9_p2cob")
+
+[node name="Cabinet2" type="Sprite2D" parent="."]
+position = Vector2(3969, 835)
+texture = ExtResource("9_p2cob")
+
+[node name="HideCabinet" type="Area2D" parent="."]
+position = Vector2(4105, 835)
+script = ExtResource("11_s2xfj")
+
+[node name="Cabinet3" type="Sprite2D" parent="HideCabinet"]
+texture = ExtResource("9_p2cob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HideCabinet"]
+position = Vector2(-33.5, -8.5)
+shape = SubResource("RectangleShape2D_g6ifr")
+
+[node name="PointLight2D" type="PointLight2D" parent="HideCabinet"]
+visible = false
+position = Vector2(-5, 0)
+energy = 1.43
+texture = SubResource("GradientTexture2D_7fpej")
+height = 70.0
+
+[node name="Cellings" type="Node2D" parent="."]
+
+[node name="CeilingLine2" type="Sprite2D" parent="Cellings"]
+position = Vector2(1084, 439)
+texture = ExtResource("11_uobta")
+
+[node name="CeilingLine3" type="Sprite2D" parent="Cellings"]
+position = Vector2(3302, 457)
+texture = ExtResource("11_uobta")
+
+[node name="CeilingLine4" type="Sprite2D" parent="Cellings"]
+position = Vector2(4397, 531)
+texture = ExtResource("12_w2y4l")
+
+[node name="CeilingLine5" type="Sprite2D" parent="Cellings"]
+position = Vector2(6617, 516)
+texture = ExtResource("13_1bb0n")
+
+[node name="Ceiling1" type="Sprite2D" parent="Cellings"]
+position = Vector2(956, 485)
+texture = ExtResource("10_b0hs3")
+
+[node name="Ceiling2" type="Sprite2D" parent="Cellings"]
+position = Vector2(2861, 485)
+texture = ExtResource("10_b0hs3")
+
+[node name="Ceiling3" type="Sprite2D" parent="Cellings"]
+position = Vector2(4739, 485)
+texture = ExtResource("10_b0hs3")
+
+[node name="Ceiling4" type="Sprite2D" parent="Cellings"]
+position = Vector2(4767, 485)
+texture = ExtResource("10_b0hs3")
+
+[node name="Ceiling5" type="Sprite2D" parent="Cellings"]
+position = Vector2(6608, 485)
+texture = ExtResource("10_b0hs3")
+
+[node name="LightLine" type="Sprite2D" parent="."]
+position = Vector2(301, 155)
+texture = ExtResource("15_663vv")
+
+[node name="LightOn" type="Sprite2D" parent="LightLine"]
+position = Vector2(1, 64)
+texture = ExtResource("16_t6f8e")
+
+[node name="LightLine2" type="Sprite2D" parent="."]
+position = Vector2(1600, 155)
+texture = ExtResource("15_663vv")
+
+[node name="LightOn" type="Sprite2D" parent="LightLine2"]
+position = Vector2(1, 64)
+texture = ExtResource("16_t6f8e")
+
+[node name="LightLine3" type="Sprite2D" parent="."]
+position = Vector2(2823, 163)
+texture = ExtResource("15_663vv")
+
+[node name="LightOn" type="Sprite2D" parent="LightLine3"]
+position = Vector2(1, 64)
+texture = ExtResource("16_t6f8e")
+
+[node name="LightLine4" type="Sprite2D" parent="."]
+position = Vector2(4089, 155)
+texture = ExtResource("15_663vv")
+
+[node name="LightOn" type="Sprite2D" parent="LightLine4"]
+position = Vector2(1, 64)
+texture = ExtResource("16_t6f8e")
+
+[node name="LightLine5" type="Sprite2D" parent="."]
+position = Vector2(5396, 155)
+texture = ExtResource("15_663vv")
+
+[node name="LightOn" type="Sprite2D" parent="LightLine5"]
+position = Vector2(1, 64)
+texture = ExtResource("16_t6f8e")
+
+[node name="LightLine6" type="Sprite2D" parent="."]
+position = Vector2(6585, 155)
+texture = ExtResource("15_663vv")
+
+[node name="LightOn" type="Sprite2D" parent="LightLine6"]
+position = Vector2(1, 64)
+texture = ExtResource("16_t6f8e")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="3FStairDoor" to="3FStairDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="3FStairDoor" to="3FStairDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="PrisonOutDoor" to="PrisonOutDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="PrisonOutDoor" to="PrisonOutDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="SurgeryDoor" to="SurgeryDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="SurgeryDoor" to="SurgeryDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="CorpseDoor" to="CorpseDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="CorpseDoor" to="CorpseDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="MonsterPrisonDoor" to="MonsterPrisonDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="MonsterPrisonDoor" to="MonsterPrisonDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="MechanicalRoomDoor" to="MechanicalRoomDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="MechanicalRoomDoor" to="MechanicalRoomDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="HideCabinet" to="HideCabinet" method="_on_body_entered"]
+[connection signal="body_exited" from="HideCabinet" to="HideCabinet" method="_on_body_exited"]
