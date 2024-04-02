@@ -25,7 +25,6 @@ position = Vector2(4230, 846)
 
 [node name="MainCamera" parent="." instance=ExtResource("5_e8eub")]
 position = Vector2(4144, 520)
-maxWidthSize = 1.4
 
 [editable path="OutSide"]
 [editable path="House"]
