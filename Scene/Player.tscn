@@ -52,3 +52,5 @@ shape = SubResource("RectangleShape2D_ifyad")
 [node name="State" type="Node" parent="."]
 
 [node name="IDLE" type="Node" parent="State"]
+
+[node name="HIDE" type="Node" parent="State"]
