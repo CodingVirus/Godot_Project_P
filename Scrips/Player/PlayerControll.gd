@@ -24,6 +24,8 @@ func _process(delta):
 		velocity.y += gravity * delta
 		move_and_slide()
 		
+		# test
+		
 		if (moveVector != Vector2.ZERO):
 			$AnimatedSprite2D.play("idle")
 		else:
